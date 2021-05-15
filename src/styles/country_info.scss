@@ -1,0 +1,157 @@
+[cssstyle = false]{
+    --background: #fafafa;
+    --h1: black;
+    --shadow: lightgray;
+}
+
+[cssstyle = true]{
+    --background: #202c37;
+    --h1: #fff;
+    --shadow: black;
+}
+
+.loading-icon{
+    width: 50px;
+}
+
+.country-info-main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    color: var(--h1);
+    background-color: var(--background);
+    align-self: flex-start;
+    width: 100%;
+
+    .btn-container{
+        width: 80vw;
+
+        button{
+            border: none;
+            background-color: var(--background);
+            box-shadow: 0px 0px 9px 0px var(--shadow);
+            border-radius: 5px;
+            font-size: 1rem;
+            padding: 5px;
+            // align-self: flex-start;
+            margin-top: 30px;
+    
+            a{
+                text-decoration: none;
+                display: flex;
+                flex-direction: row;
+                column-gap: 5px;
+                color: var(--h1);
+            }
+        }
+    }
+
+    .country-info-container{
+        display: flex;
+        flex-direction: column;
+        width: 80vw;
+        row-gap: 25px;
+
+        .info{
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+
+            h2{
+                font-size: 1.3rem;
+            }
+
+            p{
+                padding-top: 2.5px;
+                padding-bottom: 2.5px;
+                font-weight: 600;
+
+                span{
+                    font-weight: 300;
+                }
+            }
+        }
+
+        .border-countries{
+            padding-bottom: 15px;
+
+            h3{
+                font-size: 1.1rem;
+            }
+
+            .list-border-countries{
+                margin-top: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                column-gap: 5px;
+                row-gap: 5px;
+
+                .border-name{
+                    font-weight: 300;
+                    background-color: var(--white);
+                    padding: 4px 10px 4px 10px;
+                    border-radius: 2px 2px 4px 4px;
+                    box-shadow: 0px 0px 9px 0px var(--shadow);
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .country-info-main-container{
+        img{
+            width: 80%;
+            align-self: center;
+        }
+        .country-info-container{
+            .info{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 50px 1fr 1fr;
+                
+                h2{
+                    grid-row: 1;
+                    grid-column: 1;
+                }
+
+                .geo-info{
+                    grid-row: 2;
+                    grid-column: 1;
+                }
+                
+                .econ-info{
+                    grid-row: 2;
+                    grid-column: 2;
+                }
+            }
+            
+            .border-countries{
+                grid-row: 3;
+                grid-column: 1/3;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .country-info-main-container{
+        img{
+            width: 90%;
+            align-self: center;
+        }
+        .country-info-container{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            .info{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 50px 1fr 1fr;
+            }
+        }
+    }
+}

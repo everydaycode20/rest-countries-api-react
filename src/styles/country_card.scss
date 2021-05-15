@@ -1,0 +1,135 @@
+[cssstyle = false]{
+    --background: #fafafa;
+    --h1: black;
+    --shadow: lightgray;
+}
+
+[cssstyle = true]{
+    --background: #202c37;
+    --h1: #fff;
+    --shadow: black;
+}
+
+.countries-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+    
+    .country-card{
+        text-decoration: none;
+        width: 70vw;
+        background-color: var(--background);
+        box-shadow: 0px 0px 8px 0px var(--shadow);
+        display: grid;
+        border-radius: 5px;
+        cursor: pointer;
+        color: var(--h1);
+        margin-bottom: 15px;
+
+        img{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            border-radius: 5px 5px 0px 0px;
+        }
+
+        .country-info{
+            display: flex;
+            flex-direction: column;
+            row-gap: 15px;
+            padding: 20px 0px 40px 20px;
+
+            & p:nth-child(1){
+                font-weight: 800;
+                font-size: 1.1rem;
+            }
+
+            p{
+                font-weight: 600;
+                
+                span{
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+
+    .countries-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 80%;
+        justify-content: space-between;
+
+        .country-card{
+            width: 35vw;
+            height: fit-content;
+            grid-template-rows: 170px 1fr;
+
+            img{
+                width: 35vw;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    .countries-container{
+        .country-card{
+            width: 30vw;
+
+            img{
+                width: 30vw;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .countries-container{
+        .country-card{
+            width: 25vw;
+            height: 370px;
+
+            img{
+                width: 25vw;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .countries-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: center;
+
+        .country-card{
+            width: 20vw;
+            height: min-content;
+
+            img{
+                width: 20vw;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .countries-container{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-items: center;
+        
+
+        .country-card{
+            width: 15vw;
+        }
+    }
+}

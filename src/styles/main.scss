@@ -1,0 +1,34 @@
+[cssstyle = false]{
+    --background: #fafafa;
+    --h1: black;
+}
+
+[cssstyle = true]{
+    --background: #202c37;
+    --h1: #fff;
+}
+
+.super-main-container{
+    display: grid;
+    grid-template-rows: 80px 100vh;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: flex-start;
+    background-color: var(--background);
+
+    .main-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+        row-gap: 35px;
+        background-color: var(--background);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .super-main-container{
+        // height: 100vh;
+    }
+}
