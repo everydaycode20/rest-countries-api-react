@@ -11,7 +11,7 @@ function Country({search, setSearch, filterRegion}) {
     const [countries, setCountries] = useState([]);
 
     const [showCountries, setShowCountries] = useState([]);
-
+console.log("test");
     const refLastElm = useRef(null);
 
     const refContainer = useRef(null);
@@ -42,7 +42,10 @@ function Country({search, setSearch, filterRegion}) {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     function fetchCountries() {
-        fetch("https://restcountries.eu/rest/v2/all").then(res => res.json()).then(country =>{
+        fetch("https://restcountries.com/v3.1/all").then(res => res.json()).then(country =>{
+            country.forEach(elm => {
+                console.log(elm);
+            })
             setCountries(country);
             
         }).catch(err => console.log(err));
@@ -139,10 +142,10 @@ function Country({search, setSearch, filterRegion}) {
                     let pop = country.population.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     return (
                         // gets ref only when it's the last item
-                        <Link to={`/${country.name}`} key={id} className="country-card" ref={id === showCountries.length-1 ? refLastElm : null} onClick={() => resetSearch()}>
-                            <img src={country.flag} alt={showCountries.name}/>
+                        <Link to={`/${country.name.common}`} key={id} className="country-card" ref={id === showCountries.length-1 ? refLastElm : null} onClick={() => resetSearch()}>
+                            <img src={country.flags.svg} alt={country.name.common}/>
                             <div className="country-info">
-                                <p>{country.name}</p>
+                                <p>{country.name.common}</p>
                                 <p>Population: <span>{pop}</span></p>
                                 <p>Region: <span>{country.region}</span></p>
                                 <p>Capital: <span>{country.capital}</span></p>
