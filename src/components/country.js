@@ -11,7 +11,7 @@ function Country({search, setSearch, filterRegion}) {
     const [countries, setCountries] = useState([]);
 
     const [showCountries, setShowCountries] = useState([]);
-console.log("test");
+
     const refLastElm = useRef(null);
 
     const refContainer = useRef(null);
